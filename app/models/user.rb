@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  before_create :text_downcase
+  before_save :text_downcase
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
