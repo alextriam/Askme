@@ -23,8 +23,8 @@ class User < ApplicationRecord
   before_save :encrypt_password
 
   def text_downcase
-    self.username = username.downcase if self.username
-    self.email = email.downcase if self.email
+    self.username = username.downcase if username
+    self.email = email.downcase if email
   end
 
   # Шифруем пароль, если он задан
