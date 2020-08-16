@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Askme</title>
+    <title>The better questions!</title>
+    <meta charset="UTF-8"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="container">
+        <div class="header-logo">
+          <h1 class="header-title"><%= link_to "Хорошие вопросы", root_path %></h1>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+
+    
+    
   </body>
 </html>
