@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def edit
@@ -40,27 +41,6 @@ class UsersController < ApplicationController
     @new_question = Question.new
 
     @question_quantity = @questions.size
-    @question_form = word_form(@question_quantity)
+    @question_form = helpers.word_form(@question_quantity)
   end
-
-  private
-    def word_form(quantity)
-      form = {one: 'вопрос', two_four: 'вопроса', more: 'вопросов'}
-      last_number = quantity % 100
-
-      if last_number >= 10 && last_number <= 20
-        result = last_number
-      else
-        result = quantity % 10
-      end
-
-      case result
-      when 1
-        form[:one]
-      when 2..4
-        form[:two_four]
-      else
-        form[:more]
-      end
-    end
 end
