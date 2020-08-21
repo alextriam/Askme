@@ -37,11 +37,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    # берём вопросы у найденного юзера
     @questions = @user.questions.order(created_at: :desc)
-    @question_form = helpers.question_form(@questions.size, form={one: 'вопрос', two_four: 'вопроса', more: 'вопросов'})
-
-    # Для формы нового вопроса создаём заготовку, вызывая build у результата вызова метода @user.questions.
     @new_question = @user.questions.build
   end
 

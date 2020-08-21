@@ -13,22 +13,4 @@ module ApplicationHelper
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
-  def question_form(quantity, form={})
-    last_number = quantity % 100
-
-    if last_number.between?(10, 20)
-      result = last_number
-    else
-      result = quantity % 10
-    end
-
-    case result
-    when 1
-      form[:one]
-    when 2..4
-      form[:two_four]
-    else
-      form[:more]
-    end
-  end
 end
