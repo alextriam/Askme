@@ -31,20 +31,25 @@
 
 ru:
   hello: "Hello world"
+  # question:
+  #   zero: 0 вопросов
+  #   one: '%{count} вопрос'
+  #   few: '%{count} вопроса'
+  #   many: '%{count} вопросов'
+  #   other: '%{count} вопросов'
   question:
-    zero: 0 вопросов
+    zero: 'нет вопросов'
     one: '%{count} вопрос'
     few: '%{count} вопроса'
     many: '%{count} вопросов'
-    other: '%{count} вопросов'
-
-  time:
-    am: утра
-    formats:
-      default: "%a, %d %b %Y, %H:%M:%S %z"
-      long: "%d %B %Y, %H:%M"
-      short: "%d %b, %H:%M"
-    pm: вечера
-    formats:
-      d_m_y: '%d.%m.%Y'
-      short: '%d.%m.%y'
+    other: 'вопросы'
+  # time:
+  #   am: утра
+  #   formats:
+  #     default: "%a, %d %b %Y, %H:%M:%S %z"
+  #     long: "%d %B %Y, %H:%M"
+  #     short: "%d %b, %H:%M"
+  #   pm: вечера
+  #   formats:
+  #     d_m_y: '%d.%m.%Y'
+  #     short: '%d.%m.%y'

@@ -25,16 +25,13 @@
 
   <div class="user-statistics container text-center">
     <div class="column-1-3">
-      <h1 class="title-small"><%= @questions_count %></h1>
-      <p>вопросов</p>
+      <h1 class="title-small"><%= t('question', count: @questions_count)  %></h1>
     </div>
     <div class="column-1-3">
-      <h1 class="title-small"><%= @answers_count %></h1>
-      <p>ответов</p>
+      <h1 class="title-small"><%= t('question', count: @answers_count)  %> </h1>
     </div>
     <div class="column-1-3">
-      <h1 class="title-small"><%= @unanswered_count %></h1>
-      <p>безответных</p>
+      <h1 class="title-small"><%= t('question', count: @unanswered_count) %></h1>
     </div>
   </div>
 </div>
