@@ -5,11 +5,19 @@
 .user-header {
   padding: 20px 0;
   background: #005a55;
-  /*color: white;*/
+  color: white;
 }
 
 .user-header a {
-  /*color: white;*/
+  color: white;
+}
+
+.header-title a {
+  color: white;
+}
+
+.header-nav a {
+  color: white;
 }
 
 .user-image-div {
@@ -53,7 +61,7 @@
   background: #D9E6E5;
 }
 
-/*@media (max-width: 960px) {
+@media (max-width: 960px) {
   .user-question-form {
     margin-left: 0;
   }
@@ -67,4 +75,4 @@
   .user-ask-button {
     display: none;
   }
-}*/
+}

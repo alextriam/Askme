@@ -1,10 +1,10 @@
-body {
- background: #262732;
-/* color: white;*/
-}
-
 a {
   color: #005a55;
+}
+
+body {
+ background: #262732;
+ color: white;
 }
 
 .header {
