@@ -33,8 +33,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @questions = @user.questions.order(created_at: :desc)
-    @questions_with_answer = @user.questions.where("answer IS NOT ?", nil).count
-    @new_question = @user.questions.build
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
   end
 
   def update
