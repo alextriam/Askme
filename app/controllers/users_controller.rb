@@ -6,11 +6,6 @@ class UsersController < ApplicationController
   # :index, :new, :create, :show — к ним есть доступ у всех, даже у анонимных юзеров.
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
-  # Реализуем метод в секции private
-  def authorize_user
-    reject_user unless @user == current_user
-  end
-
   def index
     @users = User.all
   end
@@ -38,6 +33,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @questions = @user.questions.order(created_at: :desc)
+    @questions_with_answer = @user.questions.where("answer IS NOT ?", nil).count
     @new_question = @user.questions.build
   end
 
@@ -65,5 +61,9 @@ class UsersController < ApplicationController
   def load_user
     # защищаем от повторной инициализации с помощью ||=
     @user ||= User.find params[:id]
+  end
+
+  def authorize_user
+    reject_user unless @user == current_user
   end
 end

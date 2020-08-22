@@ -32,7 +32,7 @@
 ru:
   hello: "Hello world"
   question:
-    zero: нет вопросов
+    zero: 0 вопросов
     one: '%{count} вопрос'
     few: '%{count} вопроса'
     many: '%{count} вопросов'

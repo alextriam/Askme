@@ -23,7 +23,7 @@
   </div>
 
   <div>
-  	Всего: <%= I18n.t :question, count: @questions.size  %>
+  	Всего: <%= I18n.t :question, count: @questions.size  %>, с ответом: <%= I18n.t :question, count: @questions_with_answer  %>, без ответа: <%= I18n.t :question, count: @questions.size - @questions_with_answer  %>
   </div>
 </div>
 
