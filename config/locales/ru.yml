@@ -31,8 +31,8 @@
 
 ru:
   question:
-    zero: 'нет вопросов'
+    zero: нет вопросов
     one: '%{count} вопрос'
     few: '%{count} вопроса'
     many: '%{count} вопросов'
-    other: 'вопросы'
+    other: вопросы
