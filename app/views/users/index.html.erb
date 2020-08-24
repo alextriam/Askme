@@ -1,12 +1,6 @@
 <div class="content-wrapper buffer-both text-center">
   <div class="buffer-both">
-    <% if flash.any? %>
-      <div class="content-wrapper buffer-both">
-        <% flash.each do |name, message| %>
-          <%= content_tag :div, message, class: "flash-#{name}" %>
-        <% end %>
-      </div>
-    <% end %>
+    
     <h1 class="title-medium">Наши пользователи</h1>
   </div>
 

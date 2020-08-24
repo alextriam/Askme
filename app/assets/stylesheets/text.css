@@ -12,21 +12,15 @@ a {
   margin-bottom: 18px;
 }
 
-.flash-notice{
-  color: orange;
-}
-
 .title-medium {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 12px;
-  color: #005a55;
 }
 
 .title-small {
   font-size: 20px;
   margin-bottom: 6px;
-  color: #005a55;
 }
 
 .text-lead {
