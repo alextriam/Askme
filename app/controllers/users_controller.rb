@@ -21,9 +21,8 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
 
       if @user.save
-        current_user = @user
         session[:user_id] = @user.id
-        redirect_to root_url, notice: 'вы успешно зарегистрированы, добро пожаловть на сайт'
+        redirect_to root_url, notice: 'вы успешно зарегистрированы, добро пожаловaть на сайт'
       else
         render 'new'
       end
