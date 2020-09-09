@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :questions, except: [:show, :new, :index]
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, except: [:destroy]
+  resources :users
   resources :questions
   root to: 'users#index'
   get 'sign_up' => 'users#new'

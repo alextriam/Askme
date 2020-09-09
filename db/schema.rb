@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_170511) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
-    t.string "color"
+    t.string "color", default: "#005a55"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
