@@ -36,3 +36,16 @@ ru:
     few: '%{count} вопроса'
     many: '%{count} вопросов'
     other: вопросы
+
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: Логин (email)
+        username: Никнейм
+        name: Ваше имя
+        avatar_url: Ссылка на аватар
+        color: Цвет фона
+        password: Пароль
+        password_confirmation: Пароль еще раз
