@@ -9,21 +9,19 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   before_save :text_downcase
+  before_save :encrypt_password
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-
   validates :email, format: { with: /@/ }
+
   validates :username, length: { maximum: 40 }
   validates :username, format: { with: /\A[\w\d_]+\z/ }
 
-  validates :color, length: { is: 7 }
-  validates :color, format: { with: /#\h{6}/ }
-
   validates :password, presence: true, on: :create, confirmation: true
 
-  before_save :encrypt_password
-
+  validates :color, length: { is: 7 }
+  validates :color, format: { with: /#\h{6}/ }
 
   private
 
