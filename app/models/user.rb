@@ -15,17 +15,21 @@ class User < ApplicationRecord
 
   validates :email, format: { with: /@/ }
   validates :username, length: { maximum: 40 }
-  validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/ }
-  validates :color, format: { with: /[0-9#a-fA-F]/ }
+  validates :username, format: { with: /\A[\w\d_]+\z/ }
 
-  validates :password, presence: true, on: :create
-  validates_confirmation_of :password
+  validates :color, length: { is: 7 }
+  validates :color, format: { with: /#\h{6}/ }
+
+  validates :password, presence: true, on: :create, confirmation: true
 
   before_save :encrypt_password
 
+
+  private
+
   def text_downcase
-    self.username = username.downcase if username
-    self.email = email.downcase if email
+    self.username = username&.downcase if !!username
+    self.email = email&.downcase if !!email
   end
 
   # Шифруем пароль, если он задан
@@ -47,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def self.authenticate(email, password)
-    user = find_by(email: email)
+    user = find_by(email: email.downcase)
     return nil unless user.present?
 
     hashed_password = User.hash_to_string(
