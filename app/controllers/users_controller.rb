@@ -55,11 +55,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.id == current_user.id
+    user = load_user
+    if authorize_user
       user.destroy
     end
-    current_user = nil
+    session[:user_id] = nil
     redirect_to root_path
   end
 
