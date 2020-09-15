@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
     @questions = @user.questions.order(created_at: :desc)
     @questions_count = @questions.count
     @answers_count = @questions.where.not(answer: nil).count
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
 
   def update
     # Получаем параметры нового (обновленного) пользователя с помощью метода user_params
-    @user = User.find params[:id]
+    @user = load_user
     # пытаемся обновить юзера
     if @user.update(user_params)
       # Если получилось, отправляем пользователя на его страницу с сообщением
@@ -55,10 +54,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = load_user
-    if authorize_user
-      user.destroy
-    end
+    @user.destroy
     session[:user_id] = nil
     redirect_to root_path
   end
