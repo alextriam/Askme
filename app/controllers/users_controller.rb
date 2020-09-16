@@ -11,21 +11,21 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to root_url, alert: 'Вы уже залогинены' if current_user.present?
+    redirect_to root_path, alert: 'Вы уже залогинены' if current_user.present?
 
     @user = User.new
   end
 
   def create
-    redirect_to root_url, alert: 'Вы уже залогинены' if current_user.present?
-      @user = User.new(user_params)
+    redirect_to root_path, alert: 'Вы уже залогинены' if current_user.present?
+    @user = User.new(user_params)
 
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to root_url, notice: 'вы успешно зарегистрированы, добро пожаловaть на сайт'
-      else
-        render 'new'
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'вы успешно зарегистрированы, добро пожаловaть на сайт'
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -40,8 +40,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # Получаем параметры нового (обновленного) пользователя с помощью метода user_params
-    @user = load_user
     # пытаемся обновить юзера
     if @user.update(user_params)
       # Если получилось, отправляем пользователя на его страницу с сообщением
