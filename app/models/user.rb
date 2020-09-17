@@ -4,8 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
   REGEX_USERNAME = /\A\w+\z/
-  REGEX_COLOR = /\A#\h+\z/
-
+  REGEX_COLOR = /\A#[\h]{3,6}\z/
 
   attr_accessor :password
 
@@ -23,7 +22,6 @@ class User < ApplicationRecord
 
   validates :password, presence: true, on: :create, confirmation: true
 
-  validates :color, length: { is: 7 }
   validates :color, format: { with: REGEX_COLOR }
 
   private
