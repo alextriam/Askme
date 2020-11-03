@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
   REGEX_USERNAME = /\A\w+\z/
-  REGEX_COLOR = /\A#[\h]{3,6}\z/
+  REGEX_COLOR = /\A#\h{3,6}\z/
 
   attr_accessor :password
 
